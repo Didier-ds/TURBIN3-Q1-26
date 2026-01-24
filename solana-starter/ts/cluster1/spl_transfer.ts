@@ -32,7 +32,7 @@ const to = new PublicKey("53Q6QfKe8uJSn4sqDfq9iMPje2d1r7326mmwAxQAyLh8");
             connection, // connection
             keypair, // fee payer
             mint, // mint
-            keypair.publicKey, // owner
+            to,
         );
 
         // Transfer the new token to the "toTokenAccount" we just created
@@ -42,7 +42,7 @@ const to = new PublicKey("53Q6QfKe8uJSn4sqDfq9iMPje2d1r7326mmwAxQAyLh8");
             tokenAccount.address, // from token account
             toTokenAccount.address, // to token account
             keypair, // owner of from token account
-            500n, // amount to transfer (in smallest unit)
+            5000000000n, // amount to transfer (in smallest unit)
             [],
             {
                 commitment: "confirmed"

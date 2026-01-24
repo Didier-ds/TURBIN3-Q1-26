@@ -27,7 +27,7 @@ const mint = new PublicKey("2XQwvtpLpCBrm58TS38gZTdmWYaL4BxGg2mqiUopihGH");
             `Your ata is: ${ata.address.toBase58()}`
         );
         
-        const mintAmount = 1000;
+        const mintAmount = 100000000000000000000n;
         const mintTx = await mintTo(
             connection,
             keypair,
