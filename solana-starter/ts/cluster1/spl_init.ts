@@ -1,5 +1,5 @@
 import { Keypair, Connection, Commitment } from "@solana/web3.js";
-import { createMint } from '@solana/spl-token';
+import { createMint, TOKEN_PROGRAM_ID } from '@solana/spl-token';
 import wallet from "../turbin3-wallet.json"
 
 // Import our keypair from the wallet file
@@ -11,8 +11,20 @@ const connection = new Connection("https://api.devnet.solana.com", commitment);
 
 (async () => {
     try {
-        // Start here
-        // const mint = ???
+        const mint = await createMint(
+            connection,
+            keypair,            // Fee Payer (Your actual wallet)
+            keypair.publicKey,  // Mint Authority
+            keypair.publicKey,  // Freeze Authority
+            9,                  // Decimals
+            undefined,
+            {
+                commitment: "confirmed"
+            },
+            TOKEN_PROGRAM_ID
+        );
+
+        console.log("Success! New Mint Address:", mint.toBase58());
     } catch(error) {
         console.log(`Oops, something went wrong: ${error}`)
     }
