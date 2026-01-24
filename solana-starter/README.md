@@ -53,7 +53,7 @@ Each implementation directory contains its own set of available scripts. Please 
 |------|--------|
 | ts/cluster1/spl_init.ts | ✅ |
 | ts/cluster1/spl_mint.ts | ✅ |
-| ts/cluster1/spl_transfer.ts | ❌ |
+| ts/cluster1/spl_transfer.ts | ✅ |
 | ts/cluster1/spl_metadata.ts | ❌ |
 | ts/cluster1/nft_image.ts | ✅ |
 | ts/cluster1/nft_metadata.ts | ✅ |
