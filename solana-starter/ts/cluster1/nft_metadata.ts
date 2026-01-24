@@ -17,27 +17,31 @@ umi.use(signerIdentity(signer));
         // Follow this JSON structure
         // https://docs.metaplex.com/programs/token-metadata/changelog/v1.0#json-structure
 
-        // const image = ???
-        // const metadata = {
-        //     name: "?",
-        //     symbol: "?",
-        //     description: "?",
-        //     image: "?",
-        //     attributes: [
-        //         {trait_type: '?', value: '?'}
-        //     ],
-        //     properties: {
-        //         files: [
-        //             {
-        //                 type: "image/png",
-        //                 uri: "?"
-        //             },
-        //         ]
-        //     },
-        //     creators: []
-        // };
-        // const myUri = ???
-        // console.log("Your metadata URI: ", myUri);
+        const image = "https://gateway.irys.xyz/2FNHWJReuumtPQLmf2aUKozkLHKnnjx12ADouMKEkDTW"
+        const metadata = {
+            name: "Rugmat",
+            symbol: "RUG",
+            description: "Rugmat explores repetition, structure, and digital permanence through a muted architectural grid. What appears stable at first glance reveals subtle inconsistencies—an abstract reflection on order, control, and the thin line between foundation and collapse in digital systems.",
+            image,
+            attributes: [
+                {
+                    "trait_type": "Structure",
+                    "value": "Grid"
+                },
+            ],
+            properties: {
+                files: [
+                    {
+                        "type": "image/png",
+                        "uri": image
+                    }
+                ]
+            },
+            creators: []
+        };
+
+        const myUri = await umi.uploader.uploadJson(metadata);
+        console.log("Your metadata URI: ", myUri);
     }
     catch(error) {
         console.log("Oops.. Something went wrong", error);
